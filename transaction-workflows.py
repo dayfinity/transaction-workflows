@@ -59,5 +59,23 @@ def display_keywords():
     print(volume)
     print(Validators)
 
-def main():   main()
+def main():
+    tx = build_transaction()
+    signed = sign_transaction(tx)
+    raw_hex = signed.raw_transaction.hex()
+
+    display_keywords()
+
+    print("Wallet:", account.address)
+    print("Network:", RPC_URL)
+    print("Transactions ready")
+
+    save_output(raw_hex)
+
+    print("Contract interaction signed")
+    print("Volume:", volume)
+    print("Validators active")
+
+if __name__ == "__main__":
+    main()
 ```
